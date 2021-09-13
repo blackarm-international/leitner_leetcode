@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+  </head>
+  <body>
+    <div id = 'output'></div>
+    <script>
+
+function addDiv(day) {
+    let reportDiv;
+    let dataDiv;
+    dataDiv = document.getElementById('output');
+    reportDiv = document.createElement('h1');
+    reportDiv.innerText = day.toString();
+    dataDiv.appendChild(reportDiv);
+}
+function calc(dayCount) {
+    console.log('Days since epoch - ' + dayCount.toString());
+    if (dayCount % 64 === 0) {
+        addDiv(7)
+    }
+    if (dayCount % 32 === 0) {
+        addDiv(6)
+    }
+    if (dayCount % 16 === 0) {
+        addDiv(5)
+    }
+    if (dayCount % 8 === 0) {
+        addDiv(4)
+    }
+    if (dayCount % 4 === 0) {
+        addDiv(3)
+    }
+    if (dayCount % 2 === 0) {
+        addDiv(2)
+    }
+    addDiv(1)
+}
+
+const day = 24 * 60 * 60 * 1000;
+const timestamp = Date.now();
+let dayCount = Math.floor(timestamp / day);
+calc(dayCount);
+
+    </script>
+  </body>
+</html>
